@@ -1,17 +1,17 @@
 const printerFucntions = {
     printRestaurant : (singleRestaurant) => {
         return `<article class="article">
-              <a href="${singleRestaurant.restaurant.url}"><b>${
-                  singleRestaurant.restaurant.name
+              <a href="${singleRestaurant.url}"><b>${
+                  singleRestaurant.name
                 }</b><br></a>
-              ${singleRestaurant.restaurant.location.address}<br>
+              ${singleRestaurant.address}<br>
               Aggregate score: ${
-                singleRestaurant[`restaurant`][`user_rating`][`aggregate_rating`]
+                singleRestaurant[`averageUserRating`]
               }<br>
               Average cost for two: $${
-                singleRestaurant[`restaurant`][`average_cost_for_two`]
+                singleRestaurant[`averageCostPerTwo`]
               } <br>
-              <a href="${singleRestaurant.restaurant.menu_url}"><b>View Menu</b></a>
+              <a href="${singleRestaurant.menuURL}"><b>View Menu</b></a>
               </article>`;
       },
       

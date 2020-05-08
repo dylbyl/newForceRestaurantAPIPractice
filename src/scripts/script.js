@@ -43,3 +43,46 @@ document
       document.getElementById("search-btn").click();
     }
   });
+
+
+  //  Add event listener on submit button for restaurant form
+  document.querySelector("#add-btn").addEventListener("click", function(){
+
+    // When the button is clicked, log all the values that user typed in to the console
+    const restaurantName = document.querySelector("#name-input").value
+    const restaurantMenuURL = document.querySelector("#menu-url-input").value
+    const restaurantURL = document.querySelector("#url-input").value
+    const restaurantRating = document.querySelector("#rating-input").value
+    const restaurantCostPerTwo = document.querySelector("#cost-input").value
+    const restaurantAddress = document.querySelector("#address-input").value
+
+    console.log(restaurantName, restaurantMenuURL, restaurantURL, restaurantRating, restaurantCostPerTwo, restaurantAddress)
+
+    const restaurantObject = {
+      url : restaurantURL,
+      menuURL : restaurantMenuURL,
+      name : restaurantName,
+      averageUserRating : restaurantRating,
+      averageCostPerTwo : restaurantCostPerTwo,
+      address : restaurantAddress
+    }
+
+    fetch("http://localhost:8088/restaurants", { // Replace "url" with your API's URL
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(restaurantObject)
+})
+.then(()=> {
+  
+  document.querySelector("#restaurant-container").innerHTML = "";
+  getAllRestaurantsFromAPI()
+.then((responseArray) => {
+  responseArray.forEach((restaurantObjectInLoop) => {
+    document.querySelector("#restaurant-container").innerHTML += printerFunctions.printRestaurant(restaurantObjectInLoop);
+  })
+})
+})
+
+  })

@@ -8,7 +8,28 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" placeholder="Search restaurants" id="restaurant-search">
+    <!-- Build a form -->
+    <section id="input-container">
+      <form>
+        <input type="text" placeholder="Name" id="name-input" />
+        <input type="text" placeholder="URL" id="url-input" />
+        <input type="text" placeholder="Menu URL" id="menu-url-input" />
+        <input type="text" placeholder="Address" id="address-input" />
+        <input
+          type="text"
+          placeholder="Average User Rating"
+          id="rating-input"
+        />
+        <input type="text" placeholder="Average Cost Per Two" id="cost-input" />
+      </form>
+      <button id="add-btn">Add Restaurant</button>
+    </section>
+
+    <input
+      type="text"
+      placeholder="Search restaurants"
+      id="restaurant-search"
+    />
     <button id="search-btn">Search</button>
     <section id="restaurant-container"></section>
     <script type="module" src="/src/scripts/script.js"></script>
